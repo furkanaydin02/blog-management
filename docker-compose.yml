@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  nginx:
+    container_name: blog-nginx
+    build: docker/nginx
+    working_dir: /var/www/app
+    ports:
+      - "9969:80"
+    volumes:
+      - ./:/var/www/app
+      - ./docker/nginx/default-compose.conf:/etc/nginx/conf.d/default-compose.conf
+    networks:
+      - blog-network
+
+  php:
+    container_name: blog-fpm
+    build: docker/php
+    working_dir: /var/www/app
+    volumes:
+      - ./:/var/www/app
+    networks:
+      - blog-network
+
+  mysql:
+    container_name: blog-mysql
+    build: docker/mysql
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    volumes:
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - blog-network
+
+  phpmyadmin:
+    container_name: blog-phpmyadmin
+    build: docker/phpmyadmin
+    restart: on-failure
+    ports:
+      - "7999:80"
+    environment:
+      - PMA_HOST=mysql
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./docker/phpmyadmin/upload.ini:/usr/local/etc/php/php.ini
+    networks:
+      - blog-network
+
+networks:
+  blog-network:
