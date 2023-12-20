@@ -1,0 +1,25 @@
+[
+  {
+    "title": "Hikâye Neresi?",
+    "content": "Gençliğimde kim olduğumu bulmaya çalışırdım. Ben birisiydim ve henüz ona ulaşamamıştım. Her yerde aradım onu. Kişisel gelişim çalışmalarında, enerji çalışmalarında, atölyelerde, başarı hikâyelerinde, başkalarının hayatlarında aradım onu. Okuduğum kitapların kahramanlarında aradım. Bıraktığım her ülkeden ayrılıp vardığım ülkelerde ev kurarken hep ben kimim? ev neresi? diye sordum, ev dediğim bir yere dönmeyi arzuladım. Almanya’da yaşamaya başlayalı neredeyse üç yıl olacak, oğlum İngiltere’de, ablam Amerika’da, arkadaşlarım Türkiye’de, dünyanın farklı ülkelerinde. Eve dönmek için nereye gitmem gerekiyor?",
+
+    "author":   {
+      "firstname": "Furkan",
+      "lastname": "Aydın",
+      "email": "furkan.aydin@gmail.com",
+      "createdAt": "2023-12-20"
+    },
+    "createdAt": "2023-12-20"
+  },
+  {
+    "title": "Yaz Kurtul",
+    "content": "Haziran ortasında bir Cuma günü, yıllar öncesi, genç bir kız yatağından fırlayıp anne babasının o zamanlar alt kattaki odasına gidiyor. Hediyelerini açsın diye tüm aile onu salonda bekliyor. On üç yaşına basıyor. Önemli bir yaş günü, bir kadın, bir yetişkin olmaya atılan ilk adım.",
+    "author":   {
+      "firstname": "Erkan",
+      "lastname": "Aydın",
+      "email": "erkan.aydin@gmail.com",
+      "createdAt": "2023-12-20"
+    },
+    "createdAt": "2023-12-20"
+  }
+]

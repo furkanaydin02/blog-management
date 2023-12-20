@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nginx:
-    container_name: blog-nginx
+    container_name: Blog-nginx
     build: docker/nginx
     working_dir: /var/www/app
     ports:
@@ -14,7 +14,7 @@ services:
       - blog-network
 
   php:
-    container_name: blog-fpm
+    container_name: Blog-fpm
     build: docker/php
     working_dir: /var/www/app
     volumes:
@@ -23,7 +23,7 @@ services:
       - blog-network
 
   mysql:
-    container_name: blog-mysql
+    container_name: Blog-mysql
     build: docker/mysql
     restart: on-failure
     environment:
@@ -34,7 +34,7 @@ services:
       - blog-network
 
   phpmyadmin:
-    container_name: blog-phpmyadmin
+    container_name: Blog-phpmyadmin
     build: docker/phpmyadmin
     restart: on-failure
     ports:
