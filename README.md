@@ -1,4 +1,4 @@
-# symfony6-php8
+# Blog Management
 
 A dockerize Symfony 5, php7 blog management project
 
