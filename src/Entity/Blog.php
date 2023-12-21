@@ -31,10 +31,15 @@ class Blog
     private $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity=BlogAuthor::class, inversedBy="blogs", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity=BlogAuthor::class, inversedBy="blogs", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $author;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $status = 'waiting';
 
     public function getId(): ?int
     {
@@ -73,6 +78,18 @@ class Blog
     public function setAuthor(?BlogAuthor $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

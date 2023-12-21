@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Blog;
 use App\Entity\BlogAuthor;
+use App\Enum\UserRole;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -30,13 +31,22 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Blog Content', 'fa-solid fa-blog', Blog::class);
+        yield MenuItem::subMenu('Blog Content', 'fa-solid fa-blog')
+            ->setSubItems([
+                MenuItem::linkToCrud('Blog List', 'fa fa-list', Blog::class)
+                    ->setPermission(UserRole::ROLE_ADMIN)
+                    ->setController(BlogCrudController::class),
+                MenuItem::linkToCrud('Pending Approvals', 'fas fa-hourglass', Blog::class)
+                    ->setPermission(UserRole::ROLE_SUPER_ADMIN)
+                    ->setController(BlogApprovalCrudController::class)
+            ]);
         yield MenuItem::linkToCrud('Blog Author', 'fas fa-user', BlogAuthor::class);
     }
 
     public function configureCrud(): Crud
     {
         return Crud::new()
+            ->showEntityActionsInlined()
             ->setDateTimeFormat('y-MM-dd');
     }
 }
