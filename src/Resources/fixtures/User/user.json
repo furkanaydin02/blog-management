@@ -1,0 +1,7 @@
+[
+  {
+    "email": "roleadmin@gmail.com",
+    "password": "$2y$13$6pi6ZlBUwTZGJSJ9wO3DbeOYiq9dl9apfMoaLloJJSu9lsqxKONbe",
+    "roles": ["ROLE_USER"]
+  }
+]

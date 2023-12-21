@@ -20,3 +20,11 @@ make prepare
 
 [http://localhost:7999](http://localhost:7999/)
 
+## Login Information 
+
+```
+Username: roleadmin@gmail.com
+Password: 123456
+```
+
+
